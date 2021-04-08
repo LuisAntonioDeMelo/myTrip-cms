@@ -18,6 +18,7 @@
     ]
   },
   "dependencies": {
+    "@styled-icons/evaicons-outline": "^10.18.0",
     "install": "^0.13.0",
     "leaflet": "^1.7.1",
     "next": "10.1.1",
