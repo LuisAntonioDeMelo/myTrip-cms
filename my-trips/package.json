@@ -9,7 +9,8 @@
     "lint": "eslint src --max-warnings=0",
     "test": "jest",
     "test:watch": "yarn test --watch",
-    "generate": "yarn plop --plopfile generators/plopfile.js"
+    "generate": "yarn plop --plopfile generators/plopfile.js",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "lint-staged": {
     "src/**/*": [
@@ -19,6 +20,8 @@
   },
   "dependencies": {
     "@styled-icons/evaicons-outline": "^10.18.0",
+    "graphql": "^15.5.0",
+    "graphql-request": "^3.4.0",
     "install": "^0.13.0",
     "leaflet": "^1.7.1",
     "next": "10.1.1",
@@ -31,6 +34,11 @@
   "devDependencies": {
     "@babel/core": "^7.13.14",
     "@babel/preset-typescript": "^7.13.0",
+    "@graphql-codegen/add": "^2.0.2",
+    "@graphql-codegen/cli": "1.21.3",
+    "@graphql-codegen/typescript": "1.21.1",
+    "@graphql-codegen/typescript-operations": "1.17.15",
+    "@graphql-codegen/typescript-react-apollo": "2.2.3",
     "@storybook/addon-essentials": "6.1.21",
     "@storybook/react": "6.1.21",
     "@testing-library/jest-dom": "^5.11.10",
