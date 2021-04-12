@@ -6,10 +6,9 @@ import { useRouter } from 'next/dist/client/router'
 import PageTemplate, { PageTemplateProps } from 'templates/Pages'
 
 //aqui que eu estou rederizando a pagina
-export default function Page({ heading, body}: PageTemplateProps){
+export default function Page({ heading, body }: PageTemplateProps) {
   const router = useRouter()
-  if(router.isFallback) return null
-
+  if (router.isFallback) return null
 
   return <PageTemplate heading={heading} body={body} />
 }
@@ -28,22 +27,19 @@ export async function getStaticPaths() {
 
 //aqui pelo camigo
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-
   const { page } = await client.request<GetPageBySlugQuery>(GET_PAGE_BY_SLUG, {
-    slug : `${  params?.slug}`
+    slug: `${params?.slug}`
   })
 
-  if(!page) return { notFound: true}
+  if (!page) return { notFound: true }
 
   return {
-    props : {
+    props: {
       heading: page.heading,
       body: page.body.html
     }
   }
 }
-
-
 
 // export const getStaticProps = async () => {
 //   const {pages} = await client.request(GET_PAGES)
@@ -60,5 +56,3 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 //getInitialProps ->serve pra buscar dados da pagina runtime
 //faz o hydrate
-
-
